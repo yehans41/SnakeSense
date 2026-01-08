@@ -9,7 +9,7 @@ import argparse
 import sys
 from env import SnakeEnv
 from ui import SnakeRenderer
-from agents import RandomAgent, GreedyAgent, AStarAgent
+from agents import RandomAgent, GreedyAgent, AStarAgent, ValueIterationAgent
 from env.snake_env import Action
 
 
@@ -136,6 +136,9 @@ def play_agent(agent_type: str, board_size: int = 10, fps: int = 10, num_games: 
         agent = GreedyAgent(action_space_size=3, env_ref=env)
     elif agent_type == 'astar':
         agent = AStarAgent(action_space_size=3, env_ref=env)
+    elif agent_type == 'vi':
+        agent = ValueIterationAgent(action_space_size=3, env_ref=env)
+        print("Note: Value Iteration agent uses heuristic policy (VI solving not run)")
     else:
         print(f"Unknown agent type: {agent_type}")
         sys.exit(1)
@@ -227,7 +230,7 @@ def main():
     parser.add_argument(
         '--agent',
         type=str,
-        choices=['random', 'greedy', 'astar'],
+        choices=['random', 'greedy', 'astar', 'vi'],
         default='greedy',
         help='Agent type (if mode=agent)'
     )

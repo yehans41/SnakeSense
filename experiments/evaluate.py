@@ -13,7 +13,7 @@ import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from env import SnakeEnv
-from agents import RandomAgent, GreedyAgent, AStarAgent
+from agents import RandomAgent, GreedyAgent, AStarAgent, ValueIterationAgent
 
 
 def evaluate_agent(agent, env, num_episodes: int = 100, verbose: bool = True):
@@ -79,7 +79,7 @@ def main():
         '--agents',
         nargs='+',
         default=['random', 'greedy', 'astar'],
-        choices=['random', 'greedy', 'astar'],
+        choices=['random', 'greedy', 'astar', 'vi'],
         help='Agents to evaluate'
     )
     parser.add_argument(
@@ -143,6 +143,9 @@ def main():
             agent = GreedyAgent(action_space_size=3, env_ref=env)
         elif agent_name == 'astar':
             agent = AStarAgent(action_space_size=3, env_ref=env)
+        elif agent_name == 'vi':
+            agent = ValueIterationAgent(action_space_size=3, env_ref=env)
+            print("  Note: VI agent uses greedy heuristic (full VI solve not performed)")
         else:
             print(f"Unknown agent: {agent_name}")
             continue

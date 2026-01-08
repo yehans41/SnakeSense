@@ -29,10 +29,16 @@ Environment → Agents → Training Loop → Replay Buffer → Evaluator → Vis
 
 ## Quick Start
 
+**New to the project? Check out [GETTING_STARTED.md](GETTING_STARTED.md) for detailed setup instructions!**
+
 ### Installation
 
 ```bash
+# Install dependencies
 pip install -r requirements.txt
+
+# Test the environment
+python test_environment.py
 ```
 
 ### Play Snake Manually
@@ -71,8 +77,7 @@ python metrics/plot_results.py --results reports/experiment_results.json
 - **A* Agent**: Heuristic path planning with obstacle awareness
 
 ### Planning Agents
-- **Value Iteration**: Tabular MDP solver (small boards)
-- **Policy Evaluation**: For reporting and analysis
+- **Value Iteration**: Tabular MDP solver (small boards, uses greedy heuristic by default)
 
 ### Reinforcement Learning Agents
 - **Q-Learning**: Tabular RL with epsilon-greedy exploration
@@ -127,6 +132,7 @@ Used by: Q-Learning, Value Iteration
 | Random | TBD | TBD | TBD | TBD | - |
 | Greedy | TBD | TBD | TBD | TBD | - |
 | A* | TBD | TBD | TBD | TBD | - |
+| Value Iteration | TBD | TBD | TBD | TBD | - |
 | Q-Learning | TBD | TBD | TBD | TBD | TBD |
 | DQN | TBD | TBD | TBD | TBD | TBD |
 
