@@ -1,0 +1,33 @@
+# Tiny Q-Learning training for quick demo (just 50 episodes)
+
+agent:
+  type: 'qlearning'
+  learning_rate: 0.1
+  discount_factor: 0.95
+  epsilon_start: 1.0
+  epsilon_end: 0.01
+  epsilon_decay: 0.95
+  seed: 42
+
+environment:
+  board_size: 6  # Very small board
+  state_type: 'feature'
+  deterministic: false
+  seed: 42
+
+rewards:
+  food: 1.0
+  death: -1.0
+  step: -0.01
+
+training:
+  episodes: 50  # Just 50 episodes for quick demo
+  max_steps: 200
+  eval_frequency: 10  # Evaluate every 10 episodes
+  save_frequency: 25
+  checkpoint_dir: 'checkpoints'
+  log_dir: 'reports'
+
+evaluation:
+  episodes: 10
+  render: false
