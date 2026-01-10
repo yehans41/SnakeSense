@@ -4,7 +4,7 @@ A complete game environment + agent training platform where multiple agents (sea
 
 ## Project Overview
 
-This is not just "I trained a DQN" - this is a complete ML Engineering project featuring:
+This is a complete ML Engineering project featuring:
 
 - **Clean Gym-style Environment**: Reset, step, render with deterministic and randomized modes
 - **Multiple Agent Families**: Heuristics, planning algorithms, RL, and deep RL
