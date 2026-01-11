@@ -1,0 +1,33 @@
+# FAST Q-Learning for quick demo (completes in ~1 minute)
+
+agent:
+  type: 'qlearning'
+  learning_rate: 0.1
+  discount_factor: 0.95
+  epsilon_start: 1.0
+  epsilon_end: 0.01
+  epsilon_decay: 0.99
+  seed: 42
+
+environment:
+  board_size: 8
+  state_type: 'feature'
+  deterministic: false
+  seed: 42
+
+rewards:
+  food: 1.0
+  death: -1.0
+  step: -0.01
+
+training:
+  episodes: 200  # Reduced from 500
+  max_steps: 100  # MUCH smaller - key change!
+  eval_frequency: 50
+  save_frequency: 100
+  checkpoint_dir: 'checkpoints'
+  log_dir: 'reports'
+
+evaluation:
+  episodes: 10  # Reduced from 100
+  render: false
